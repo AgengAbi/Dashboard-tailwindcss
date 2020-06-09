@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard</title>
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</head>
+<body>
+	<div class="flex h-screen">
+		<div class="sidebar w-64 flex-none flex flex-col overflow-y-hidden">
+			<div class="brand h-16 flex-none relative py-2 px-6 shadow-xl">
+				<a href="#" class="font-bold text-3xl">
+					Learn
+				</a>
+			</div>
+			<div class="menu flex-1 overflow-y-auto">
+				<ul class="p-4">
+					<li>
+					  <a href="" class="">
+					  	<span class="block px-4 py-2 hover:bg-purple-500 rounded-full font-bold text-white"><img src="icons/summary.svg" class="h-6 float-left mr-2" alt="">Dashboard</span>
+					  </a>
+					</li>
+					<li>
+					  <a href="">
+					  	<span class="block px-4 py-2 hover:bg-purple-500 rounded-full font-bold text-white mt-2"><img src="icons/plus.svg" class="h-6 float-left mr-2" alt="">Post</span>
+					  </a>
+					</li>
+					<li>
+					  <a href="">
+					  	<span class="block px-4 py-2 hover:bg-purple-500 rounded-full font-bold text-white mt-2"><img src="icons/share-post.svg" class="h-6 float-left mr-2" alt="">Media</span>
+					  </a>
+					</li>
+					<li>
+					  <a href="">
+					  	<span class="block px-4 py-2 hover:bg-purple-500 rounded-full font-bold text-white mt-2"><img src="icons/calendar.svg" class="h-6 float-left mr-2" alt="">Calendar</span>
+					  </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content-area flex-1 flex flex-col">
+			<div class="navbar h-16 flex-none relative shadow-xl">
+				<div class="container mx-auto px-6 py-2 flex justify-between items-center h-full">
+					<a href="#" class="font-bold text-3xl">
+						Dashboard
+					</a>
+					<input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block flex-1 lg:mx-40" type="text" placeholder="search">
+					<ul class="inline-flex flex justify-between items-center relative w-24">
+		        <li>
+		        	<a class="px-4" href="#">
+		        		<img src="icons/settings.svg" class="h-6" alt="">
+		        	</a>
+		        </li>
+		        <li>
+		        	<a class="px-4 hover:text-gray-800" href="#">
+		        		<img src="icons/logout.svg" class="h-6" alt="">
+		        	</a>
+		        </li>
+		      </ul>
+				</div>
+			</div>
+			<div class="content bg-white flex-1 overflow-y-auto relative">
+				<div class="hero relative z-0">
+					<img src="images/view-min.jpg" class="object-cover h-64 object-center w-full z-0" alt="">
+					<p class="text-5xl w-full text-center absolute -mt-48 text-white">Hello User</p>
+				</div>
+				<div class="content-in px-12 flex lg:-mt-24 z-10 absolute w-full">
+					<div class="w-64 bg-white flex-none shadow-lg p-2 rounded-lg lg:mr-4 h-64">
+						<div class="md:flex bg-white rounded-lg p-6 lg:flex flex-col">
+					    <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto" src="images/avatar.png">
+					    <div class="text-center">
+					      <h2 class="text-lg">Erin Lindford</h2>
+					      <div class="text-purple-500">Customer Support</div>
+					      <div class="text-gray-600">erinlindford@example.com</div>
+					      <div class="text-gray-600">(555) 765-4321</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="flex-1 bg-white shadow-lg rounded-lg p-6">
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+				datasets: [{
+					label: '# of Votes',
+					data: [12, 19, 3, 23, 2, 3],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
+</body>
+</html>

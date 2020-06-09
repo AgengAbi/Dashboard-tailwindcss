@@ -1,0 +1,5 @@
+.sidebar{
+	background: url(images/trees-min.jpg), #9F7AEA;
+	background-blend-mode: lighten;
+	object-fit: cover;
+}
